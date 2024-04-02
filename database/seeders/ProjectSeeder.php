@@ -17,15 +17,28 @@ class ProjectSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i=0;$i<50;$i++){
 
+        $projects=config('projects');
+        foreach($projects as $currProject){
             $project=new Project;
-            $project->title=$faker->catchPhrase();
-            $project->description=$faker->paragraph(2);
-            $project->link=$faker->url();
-            $project->imageUrl=$faker->imageUrl(640, 480, 'animals', true);
+            $project->title=$currProject['title'];
+            $project->description=$currProject['description'];
+            $project->link=$currProject['link'];
+            $project->imageUrl=$currProject['imageUrl'];
             $project->slug=Str::slug($project->title);
             $project->save();
         }
+
+
+        // for($i=0;$i<50;$i++){
+
+        //     $project=new Project;
+        //     $project->title=$faker->catchPhrase();
+        //     $project->description=$faker->paragraph(2);
+        //     $project->link=$faker->url();
+        //     $project->imageUrl=$faker->imageUrl(640, 480, 'animals', true);
+        //     $project->slug=Str::slug($project->title);
+        //     $project->save();
+        // }
     }
 }
