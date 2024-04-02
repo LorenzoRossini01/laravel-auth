@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title', 150);
             $table->text('description');
-            $table->text('link');
-            $table->text('imageUrl');
+            $table->text('link')->nullable();
+            $table->text('imageUrl')->nullable();
             $table->string('slug', 150);
             $table->timestamps();
         });

@@ -20,6 +20,14 @@
             </div>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-6">
+            <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning w-100">Edit project details</a>
+        </div>
+        <div class="col-6">
+            <a class="btn btn-danger w-100">Delete project</a>
+        </div>
+    </div>
 
 
   </div>
