@@ -25,10 +25,35 @@
             <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-warning w-100">Edit project details</a>
         </div>
         <div class="col-6">
-            <a class="btn btn-danger w-100">Delete project</a>
+            <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $project->id }}">Delete project</button>
         </div>
     </div>
 
 
   </div>
+  <div class="modal fade" id="delete-modal-{{ $project->id }}" tabindex="-1" aria-labelledby="delete-modal-{{ $project->id }}-label"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="delete-modal-{{ $project->id }}-label">Conferma eliminazione</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-start">
+          Sei sicuro di voler eliminare definitivamente il progetto: {{ $project->name }}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+
+          <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="">
+            @method('DELETE')
+            @csrf
+
+            <button type="submit" class="btn btn-danger">Elimina</button>
+          </form>
+        </div>
+      </div>
+    </div>
 @endsection
+
+
