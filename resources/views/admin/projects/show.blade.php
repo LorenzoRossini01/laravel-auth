@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container project-show">
     <h2 class="fs-4 text-secondary my-4">Project Details</h2>
 
     <div class="card">
@@ -10,10 +10,10 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <img src="{{$project['imageUrl']}}" alt="" class="image-fluid">
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <p>{{$project['description']}}</p>                    
                     <a href="{{$project['link']}}">{{$project['link']}}</a>
                 </div>

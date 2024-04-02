@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container project-index">
     <h2 class="fs-4 text-secondary my-4">Project List</h2>
     <table class="table table-hover">
         <thead>
@@ -19,7 +19,7 @@
                 <td>{{$project['title']}}</td>
                 <td>{{$project['description']}}</td>
                 <td><a href="{{$project['link']}}">{{$project['link']}}</a></td>
-                <td><img src="{{$project['imageUrl']}}" alt="" class="image-fluid"></td>
+                <td class="image-cell"><div><img src="{{$project['imageUrl']}}" alt="" class="image-fluid"></div></td>
                 <td><a href="{{route('admin.projects.show', $project)}}">più dettagli</a></td>
             </tr>
             @empty
