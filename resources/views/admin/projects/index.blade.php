@@ -8,7 +8,7 @@
             <tr>
                 <th>Titolo</th>
                 <th>Descrizione</th>
-                <th>Link</th>
+                {{-- <th>Link</th> --}}
                 <th>Url Immagine</th>
                 <th></th>
             </tr>
@@ -18,9 +18,9 @@
             <tr>
                 <td>{{$project['title']}}</td>
                 <td>{{$project['description']}}</td>
-                <td><a href="{{$project['link']}}">{{$project['link']}}</a></td>
+                {{-- <td><a href="{{$project['link']}}">{{$project['link']}}</a></td> --}}
                 <td class="image-cell"><div><img src="{{$project['imageUrl']}}" alt="" class="image-fluid"></div></td>
-                <td><a href="{{route('admin.projects.show', $project)}}">più dettagli</a></td>
+                <td><a href="{{route('admin.projects.show', $project)}}">più dettagli...</a></td>
             </tr>
             @empty
             <tr>

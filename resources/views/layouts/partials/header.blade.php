@@ -11,7 +11,17 @@
           <li class="nav-item">
             <a @class(['nav-link', 'active' => Route::currentRouteName() == 'home']) aria-current="page" href="{{ route('home') }}">Home</a>
           </li>
-
+          @auth
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.projects.index') }}">Project List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('admin.projects.create') }}">Add Project</a>
+            </li>
+          @endauth
+        </ul>
+          
+        <ul class="navbar-nav  mb-2 mb-lg-0">
           @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -22,14 +32,9 @@
               </li>
             @endif
           @else
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('admin.projects.index') }}">Project List</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('admin.projects.create') }}">Add Project</a>
-            </li>
+
             <li class="nav-item dropdown">
-              <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+              <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle text-capitalize" data-bs-toggle="dropdown"
                 href="#" id="navbarDropdown" role="button" v-pre>
                 {{ Auth::user()->name }}
               </a>
@@ -47,6 +52,7 @@
               </div>
             </li>
           @endguest
+        </ul>
       </div>
     </div>
   </nav>
